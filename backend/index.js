@@ -12,14 +12,14 @@ const io = new Server(httpServer, {
   },
 });
 
-
 io.on("connection", (socket) => {
   console.log("connected...");
-  socket.on("setup", ({ userId }) => {
-    socket.join(userId);
-    socket.emit("connected");
-    console.log("joined room");
-  });
+  socket.on("message", (message) => {
+    console.log(message);
+    io.emit("all-people",message)
+});
+
+
 });
 
 httpServer.listen(port, () => {
