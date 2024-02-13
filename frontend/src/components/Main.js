@@ -6,11 +6,12 @@ import { Joinuser } from "./joinUser";
 export function Main() {
   const [newuser, setnewUser] = useState();
   const [user, setUser] = useState({});
-  const [users, setUsers] = useState();
-  const [message, setMessage] = useState();
+  const [users, setUsers] = useState([]);
+  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
   const handleChange = () => {
+    setUser(newuser)
     socket.auth = { username: newuser };
     socket.connect();
   };
@@ -46,7 +47,7 @@ export function Main() {
       };
       setMessages([...messages, newMessage]);
     });
-  }, [socket]);
+  }, [socket,messages]);
 
 
   return (
