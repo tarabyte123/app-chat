@@ -3,15 +3,34 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(31, 30, 30);
+}
+
+.container{
+  width: 80%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap:10px;
+}
+
+.box{
+  width: 100%;
+  height: 80vh;
+  border-radius: 20px;
+  border: 1px solid gainsboro;
+  height: 100%;
 }
 
 .input {
-  width: full;
+  width: 100%;
   outline: none;
   border-radius: 10px;
   border: 0;
   font-size: 22px;
-  width: 96%;
 }
 
 .button {
@@ -20,11 +39,9 @@
 }
 
 .inputF {
-  position: absolute;
-  bottom: 5px;
-  width: 90%;
   border-radius: 10px;
-  height: 50px;
+  height: calc(100vh - 95vh);
+  width: 100%;
   display: flex;
   justify-content: center;
   border: solid 2px gainsboro;
@@ -36,4 +53,54 @@
 
 .text-left {
   text-align: left;
+}
+
+.joined-status{
+  background-color: aquamarine;
+  width: fit-content;
+  margin: 5px auto;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.join-container{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap:20px;
+  color: white;
+  
+}
+
+.join-input-box{
+  border-radius: 50px;
+  height: calc(100vh - 95vh);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid 2px rgb(14, 14, 14);
+}
+
+
+.join-input-box > input{
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.join-button{
+  background: rgb(38, 215, 201);
+  border-radius: 10px;
+  cursor: pointer;
+  font-style: "monospace";
+  padding: 10px;
+  font-weight: 700;
+}
+
+.title{
+  font-size: 30px;
+  font-family: "monospace";
+  color:"white";
+  
 }

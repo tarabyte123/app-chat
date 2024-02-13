@@ -4,19 +4,17 @@ import React, { useState } from "react";
 
 function ChatPage({ user, message, sendMessage,setMessage, messages, socket }) {
   const handleClick = () => {
-    console.log(message);
     sendMessage();
-    socket.emit("message", message);
   };
 
   return (
-    <div className="App">
-      <div className="Box">
+    <div className="container">
+      <div className="box">
         {messages.map((item, index) => {
           return item.type === "status" ? (
-            <div key={index}>
+            <div key={index} className="joined-status">
               {item.userId === user.userId
-                ? "You have Joiuned"
+                ? "You have Joined"
                 : `${item.username} has joined`}{" "}
             </div>
           ) : (
@@ -28,7 +26,7 @@ function ChatPage({ user, message, sendMessage,setMessage, messages, socket }) {
             >
               {item.userId === user.userId
                 ? "You"
-                : `${item.username} `}{" "}
+                : `${item.username}`}{" "}
               <div>{item.message}</div>
             </div>
           );

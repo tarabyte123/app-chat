@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import ChatPage from "./components/ChatPage";
 import { socket } from "./socket";
+import { Joinuser } from "../src/components/joinUser";
 
 function App() {
   const [newuser, setnewUser] = useState();
@@ -64,7 +65,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <p>{user && `Logged in as` + user}</p> */}
       {user.userId && (
         <ChatPage
           user={user}
@@ -75,17 +75,7 @@ function App() {
           messages={messages}
         />
       )}
-      {!user.userId && (
-        <>
-          <div>Enteruser name</div>
-          <input
-            type="text"
-            value={newuser}
-            onChange={(e) => setnewUser(e.target.value)}
-          />
-          <button onClick={handleClick}>join</button>
-        </>
-      )}
+     <Joinuser user={user} handleClick={handleClick} setnewUser={setnewUser} newuser={newuser}/>
     </div>
   );
 }
