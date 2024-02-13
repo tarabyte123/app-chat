@@ -5,21 +5,21 @@
   justify-content: center;
 }
 
-.input{
-  width:full;
+.input {
+  width: full;
   outline: none;
   border-radius: 10px;
   border: 0;
   font-size: 22px;
-  width: 96% ;
+  width: 96%;
 }
 
-.button{
-  margin:2px;
-  border-radius:15px;
+.button {
+  margin: 2px;
+  border-radius: 15px;
 }
 
-.inputF{
+.inputF {
   position: absolute;
   bottom: 5px;
   width: 90%;
@@ -27,5 +27,13 @@
   height: 50px;
   display: flex;
   justify-content: center;
-  border:solid 2px gainsboro ;
+  border: solid 2px gainsboro;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
 }
