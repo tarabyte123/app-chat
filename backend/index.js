@@ -7,12 +7,12 @@ const { v4: uuid } = require("uuid");
 
 const app = express();
 const httpServer = createServer(app);
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });

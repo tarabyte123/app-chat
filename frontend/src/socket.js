@@ -1,7 +1,6 @@
 import { io } from "socket.io-client";
 
-const URL =
-  process.env.NODE_ENV === "production" ? undefined : "http://localhost:5000";
+const URL ="https://worldcup-io-assignment.onrender.com";
 
 export const socket = io(URL, {
   autoConnect: false,
