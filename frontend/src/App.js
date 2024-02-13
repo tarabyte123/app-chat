@@ -21,6 +21,8 @@ function App() {
     socket.on("session", ({ username, userId }) => {
       setUser({ userId, username });
     });
+
+
     socket.on("users", (users) => {
       const messageArr = [];
 
@@ -33,10 +35,12 @@ function App() {
       setUsers(users);
     });
 
+
     socket.on("userconnected", ({ userId, username }) => {
       const newMessage = { type: "status", userId, username };
       setMessages([...messages, newMessage]);
     });
+
 
     socket.on("newmessage", ({ message, userId, username }) => {
       const newMessage = {
@@ -48,6 +52,8 @@ function App() {
 
       setMessages([...messages, newMessage]);
     });
+
+    
   }, []);
 
   function sendMessage() {

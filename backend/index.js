@@ -1,5 +1,6 @@
 const express = require("express");
 const { createServer } = require("http");
+const path = require("path");
 const { Server } = require("socket.io");
 require("dotenv").config();
 const { v4: uuid } = require("uuid");
@@ -55,6 +56,20 @@ io.on("connection", async (socket) => {
     });
   });
 });
+
+
+const __dirname1 = path.resolve()
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "../frontend/build")));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    console.log("API running successfully");
+  });
+}
 
 httpServer.listen(port, () => {
   console.log(`server running at ${port}`);
