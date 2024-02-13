@@ -11,6 +11,8 @@ function App() {
   const [message, setMessage] = useState();
   const [messages, setMessages] = useState([]);
 
+  console.log(messages)
+
   const handleClick = () => {
     setUser(newuser);
     socket.auth = { username: newuser };
@@ -53,7 +55,7 @@ function App() {
       setMessages([...messages, newMessage]);
     });
 
-    
+
   }, []);
 
   function sendMessage() {

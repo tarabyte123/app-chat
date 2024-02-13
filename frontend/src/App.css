@@ -15,6 +15,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
+  
 }
 
 .box {
@@ -23,6 +24,7 @@
   border-radius: 20px;
   border: 1px solid gainsboro;
   padding:10px;
+  overflow-y: scroll;
 }
 
 .input-chat-box > input {
