@@ -8,24 +8,24 @@
   background-color: rgb(31, 30, 30);
 }
 
-.container{
+.container {
   width: 80%;
   height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap:10px;
+  gap: 10px;
 }
 
-.box{
+.box {
   width: 100%;
   height: 80vh;
   border-radius: 20px;
   border: 1px solid gainsboro;
-  height: 100%;
+  padding:10px;
 }
 
-.input {
+.input-chat-box > input {
   width: 100%;
   outline: none;
   border-radius: 10px;
@@ -33,29 +33,41 @@
   font-size: 22px;
 }
 
-.button {
+.chat-send-button {
+  background-color:rgb(38, 215, 201) ;
+  cursor: pointer;
   margin: 2px;
   border-radius: 15px;
 }
 
-.inputF {
+.input-chat-box {
   border-radius: 10px;
   height: calc(100vh - 95vh);
   width: 100%;
   display: flex;
+  background-color: white;
   justify-content: center;
   border: solid 2px gainsboro;
 }
 
 .text-right {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  gap:10px;
   text-align: right;
 }
 
 .text-left {
+  color:white;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap:10px;
   text-align: left;
 }
 
-.joined-status{
+.joined-status {
   background-color: aquamarine;
   width: fit-content;
   margin: 5px auto;
@@ -63,16 +75,15 @@
   border-radius: 10px;
 }
 
-.join-container{
+.join-container {
   display: flex;
   flex-direction: column;
   align-self: center;
-  gap:20px;
+  gap: 20px;
   color: white;
-  
 }
 
-.join-input-box{
+.join-input-box {
   border-radius: 50px;
   height: calc(100vh - 95vh);
   width: 100%;
@@ -81,15 +92,14 @@
   border: solid 2px rgb(14, 14, 14);
 }
 
-
-.join-input-box > input{
+.join-input-box > input {
   border-radius: 10px;
   width: 100%;
   outline: none;
   border: none;
 }
 
-.join-button{
+.join-button {
   background: rgb(38, 215, 201);
   border-radius: 10px;
   cursor: pointer;
@@ -98,9 +108,13 @@
   font-weight: 700;
 }
 
-.title{
+.title {
   font-size: 30px;
   font-family: "monospace";
-  color:"white";
-  
+  color: "white";
+}
+
+
+.message{
+  color: white;
 }

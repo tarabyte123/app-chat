@@ -2,7 +2,14 @@ import "../App.css";
 import { socket } from "../socket";
 import React, { useState } from "react";
 
-function ChatPage({ user, message, sendMessage,setMessage, messages, socket }) {
+function ChatPage({
+  user,
+  message,
+  sendMessage,
+  setMessage,
+  messages,
+  socket,
+}) {
   const handleClick = () => {
     sendMessage();
   };
@@ -24,23 +31,33 @@ function ChatPage({ user, message, sendMessage,setMessage, messages, socket }) {
                 item.userId === user.userId ? `text-right` : `text-left`
               }
             >
-              {item.userId === user.userId
-                ? "You"
-                : `${item.username}`}{" "}
-              <div>{item.message}</div>
+                <div className="">
+                  <div>
+                    {item.userId === user.userId ? "You" : `${item.username}`}{" "}
+                  </div>
+                  <div className="message">{item.message}</div>
+                </div>
+                <img
+                  src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
+                  height={40}
+                  width={40}
+                  alt="image"
+                  style={{
+                    display: "inline-grid",
+                    borderRadius:"10px"
+                  }}
+                />
             </div>
           );
         })}
       </div>
-      <div className="inputF">
+      <div className="input-chat-box">
         <input
-          className="input"
           placeholder="type here...."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-
         />
-        <button className="button" onClick={handleClick}>
+        <button className="chat-send-button" onClick={handleClick}>
           send
         </button>
       </div>
