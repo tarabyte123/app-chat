@@ -55,7 +55,7 @@ io.on("connection", async (socket) => {
   });
 
   socket.on("newmessage", (message) => {
-    socket.broadcast.emit("newmessage", {
+    socket.broadcast.emit("all-message", {
       userId: socket.userId,
       username: socket.username,
       message,

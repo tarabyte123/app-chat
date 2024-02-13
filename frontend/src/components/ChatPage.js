@@ -1,21 +1,33 @@
 import "../App.css";
-import { socket } from "../socket";
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 function ChatPage({
   user,
   message,
-  sendMessage,
   setMessage,
+  setMessages,
   messages,
-  socket,
+  socket
 }) {
-  const handleClick = () => {
-    sendMessage();
+ 
+
+  const sendMessage = () => {
+    socket.emit("newmessage", message);
+    const newMessage = {
+      type: "message",
+      userId: user.userId,
+      username: user.username,
+      message,
+    };
+
+    setMessages([...messages, newMessage]);
+    setMessage("");
   };
 
   return (
     <div className="container">
+      <div className="headr">Hello {user.username} welcome to our chat-app</div>
       <div className="box">
         {messages.map((item, index) => {
           return item.type === "status" ? (
@@ -56,9 +68,9 @@ function ChatPage({
           placeholder="type here...."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          onKeyUpCapture={(e) => (e.code === "Enter" ? handleClick() : null)}
+          onKeyUpCapture={(e) => (e.code === "Enter" ? sendMessage() : null)}
         />
-        <button className="chat-send-button" onClick={handleClick}>
+        <button className="chat-send-button" onClick={sendMessage}>
           send
         </button>
       </div>
